@@ -50,26 +50,59 @@ public class Dungeon
 {
     public static void main(String[] args)
 	{
-		Hero theHero;
+
+
+    	Hero theHero;
 		Monster theMonster;
 
 		Scanner keyboard = new Scanner(System.in);
 
 		do
 		{
-		    theHero = chooseHero(keyboard);
-		    theMonster = generateMonster();
-			battle(theHero, theMonster);
+		    
+			gameRules();
+			
+			
+		    
+			
 
+			System.out.println("1) PLAY GAME");
+			System.out.println("Game Choice: ");
+			
+			String startGame = keyboard.nextLine();
+			
+			if(startGame.equalsIgnoreCase("1")) {
+			                                                 
+				theHero = chooseHero(keyboard);
+				theMonster = generateMonster();
+				Battle.battle(theHero, theMonster);
+	//		                battle(theHero, theMonster);  
+			}                                                 
+			
+			
 		} while (playAgain());
 
     }//end main method
 
-/*-------------------------------------------------------------------
-chooseHero allows the user to select a hero, creates that hero, and
-returns it.  It utilizes a polymorphic reference (Hero) to accomplish
-this task
----------------------------------------------------------------------*/
+    private static void gameRules() {
+		
+    	  System.out.println("Dungeon Maze Game: ");
+    	  System.out.println("_____________________________________________________________________________________________");
+          System.out.println("User must travel the maze, where MONSTERS are hidden");
+          System.out.println("Collect the FOUR Pillars of Object Oritentated Programming: (O.O) ");
+          System.out.println("\t\tAbstraction\n \t\tEncapsulation\n  \t\tInheritance\n \t\tPolymorphism");
+          System.out.println("_____________________________________________________________________________________________");                                              
+         
+	}
+
+    
+	/*-------------------------------------------------------------------
+	 * Hero: chooseHero(Scanner keyboard) method should get refactored into its own class as the Hero Factory. 
+	 * 
+	chooseHero allows the user to select a hero, creates that hero, and
+	returns it.  It utilizes a polymorphic reference (Hero) to accomplish
+	this task
+	---------------------------------------------------------------------*/
 	public static Hero chooseHero(Scanner keyboard)
 	{
 		String choice;
@@ -94,6 +127,8 @@ this task
 	}//end chooseHero method
 
 /*-------------------------------------------------------------------
+ * Monster: generateMonster() method will become factory pattern for monsters  inside the dungeon character class
+ * 
 generateMonster randomly selects a Monster and returns it.  It utilizes
 a polymorphic reference (Monster) to accomplish this task.
 ---------------------------------------------------------------------*/
@@ -129,91 +164,12 @@ true if the user chooses to continue, false otherwise.
 			System.out.println();
 
 			if(!(choice.equalsIgnoreCase("y") || choice.equalsIgnoreCase("n")))
-				System.out.println("BAD INPUT - TRY AGAIN");
+				System.out.println("MAKE UP YOUR MIND HERO");
 		}
 
 		return (choice.equalsIgnoreCase("y"));
 	}//end playAgain method
 
-
-/*-------------------------------------------------------------------
-battle is the actual combat portion of the game.  It requires a Hero
-and a Monster to be passed in.  Battle occurs in rounds.  The Hero
-goes first, then the Monster.  At the conclusion of each round, the
-user has the option of quitting.
----------------------------------------------------------------------*/
-	public static void battle(Hero theHero, Monster theMonster)
-	{
-		Scanner keyboard = new Scanner(System.in);
-		Boolean wantToQuit = false;
-		System.out.println(theHero.getName() + " battles " +
-				theMonster.getName());
-		System.out.println("---------------------------------------------");
-
-
-		//do battle
-		while (theHero.isAlive() && theMonster.isAlive() && !wantToQuit)
-		{
-			int numTurns = theHero.determineNumberOfTurns(theMonster);
-
-			//hero goes first
-			while(numTurns > 0)
-			{
-				System.out.println("Number of Attacks Left: " + numTurns);
-
-				int attackChoice = attackMenu(theHero, keyboard);
-
-				if(attackChoice == 1)
-					theHero.attack(theMonster);
-
-				else //attackChoice == 2 Special Attack
-					theHero.specialAttack(theMonster);
-				numTurns--;
-			}
-
-			//monster's turn (provided it's still alive!)
-			if (theMonster.isAlive())
-				theMonster.attack(theHero);
-
-			//let the player bail out if desired
-			System.out.println();
-			System.out.print("Turn Over -->q to quit, anything else to continue: ");
-			String quitCheck = keyboard.nextLine();
-			wantToQuit = quitCheck.equalsIgnoreCase("q");
-		}//end battle loop
-
-		printBattleResults(theHero, theMonster);
-	}//end battle method
-
-	private static void printBattleResults(Hero theHero, Monster theMonster) {
-		if (!theMonster.isAlive())
-			System.out.println(theHero.getName() + " was victorious!");
-		else if (!theHero.isAlive())
-			System.out.println(theHero.getName() + " was defeated :-(");
-		else//both are alive so user quit the game
-			System.out.println("Quitters never win ;-)");
-	}
-
-	private static int attackMenu(Hero theHero, Scanner kb) {
-
-		String choice;
-
-		do {
-			System.out.println("1) Normal Attack");
-			System.out.println("2) " + theHero.specialAttackDescription());
-			System.out.print("Choice --> ");
-
-			choice = kb.nextLine();
-
-			if(!(choice.equals("1") || choice.equals("2")))
-			{
-				System.out.println("BAD INPUT - TRY AGAIN");
-			}
-
-		}while(!(choice.equals("1") || choice.equals("2")));
-
-		return Integer.parseInt(choice);
-	}
 
 
 }//end Dungeon class

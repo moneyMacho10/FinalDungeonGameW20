@@ -1,3 +1,4 @@
+package dungeon.dungeoncharacter;
 import java.util.Scanner;
 
 /**

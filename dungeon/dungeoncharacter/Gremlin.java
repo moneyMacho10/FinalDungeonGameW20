@@ -1,4 +1,8 @@
+<<<<<<< HEAD:dungeon/dungeoncharacter/Gremlin.java
+package dungeon.dungeoncharacter;
 
+=======
+>>>>>>> master:Gremlin.java
 /**
  * Title:
  * Description:
@@ -8,25 +12,24 @@
  * @version 1.0
  */
 
-public class Ogre extends Monster
+public class Gremlin extends Monster
 {
 
-    Ogre()
+    Gremlin()
 	{
     	//name, hitPoints, attackSpeed, chanceToHit, chanceToHeal, damageMin, damageMax, minHeal, maxHeal
-		super("Oscar the Ogre", 200, 2, .6, .1, 30, 50, 30, 50);
-
+		super("Gnarltooth the Gremlin", 70, 5, .8, .4, 15, 30, 20, 40);
 
     }//end constructor
 
 	@Override
 	public void attack(DungeonCharacter opponent)
 	{
-		System.out.println(name + " slowly swings a club toward's " +
+		System.out.println(name + " jabs his kris at " +
 							opponent.getName() + ":");
 		super.attack(opponent);
 
 	}//end override of attack
 
 
-}//end Monster class
+}//end class Gremlin

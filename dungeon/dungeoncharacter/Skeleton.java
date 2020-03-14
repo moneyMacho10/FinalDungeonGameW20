@@ -1,3 +1,5 @@
+package dungeon.dungeoncharacter;
+
 
 /**
  * Title:
@@ -8,24 +10,24 @@
  * @version 1.0
  */
 
-public class Gremlin extends Monster
+public class Skeleton extends Monster
 {
 
-    Gremlin()
+    Skeleton()
 	{
     	//name, hitPoints, attackSpeed, chanceToHit, chanceToHeal, damageMin, damageMax, minHeal, maxHeal
-		super("Gnarltooth the Gremlin", 70, 5, .8, .4, 15, 30, 20, 40);
+		super("Sargath the Skeleton", 100, 3, .8, .3, 30, 50, 30, 50);
 
     }//end constructor
 
 	@Override
 	public void attack(DungeonCharacter opponent)
 	{
-		System.out.println(name + " jabs his kris at " +
+		System.out.println(name + " slices his rusty blade at " +
 							opponent.getName() + ":");
 		super.attack(opponent);
 
 	}//end override of attack
 
 
-}//end class Gremlin
+}//end class Skeleton

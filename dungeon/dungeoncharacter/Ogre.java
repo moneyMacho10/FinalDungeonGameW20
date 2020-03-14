@@ -1,3 +1,4 @@
+package dungeon.dungeoncharacter;
 
 
 /**
@@ -9,24 +10,25 @@
  * @version 1.0
  */
 
-public class Skeleton extends Monster
+public class Ogre extends Monster
 {
 
-    Skeleton()
+    Ogre()
 	{
     	//name, hitPoints, attackSpeed, chanceToHit, chanceToHeal, damageMin, damageMax, minHeal, maxHeal
-		super("Sargath the Skeleton", 100, 3, .8, .3, 30, 50, 30, 50);
+		super("Oscar the Ogre", 200, 2, .6, .1, 30, 50, 30, 50);
+
 
     }//end constructor
 
 	@Override
 	public void attack(DungeonCharacter opponent)
 	{
-		System.out.println(name + " slices his rusty blade at " +
+		System.out.println(name + " slowly swings a club toward's " +
 							opponent.getName() + ":");
 		super.attack(opponent);
 
 	}//end override of attack
 
 
-}//end class Skeleton
+}//end Monster class

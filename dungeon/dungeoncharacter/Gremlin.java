@@ -1,3 +1,8 @@
+<<<<<<< HEAD:dungeon/dungeoncharacter/Gremlin.java
+package dungeon.dungeoncharacter;
+
+=======
+>>>>>>> master:Gremlin.java
 /**
  * Title:
  * Description:

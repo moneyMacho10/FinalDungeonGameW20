@@ -1,6 +1,11 @@
 import java.util.Random;
 import java.util.Scanner;
 
+import battle.Battle;
+import characters.heros.*;
+import game.Game;
+
+
 /**
  * Title: Dungeon.java
  *
@@ -78,10 +83,14 @@ public class Dungeon
 		
 				HeroFactory myHeroFactory = new HeroFactory();
 				mHero = myHeroFactory.generateHero("Hero");
-				//battle
 				
-		
-				//playGame(maze, mHero);
+				MonsterFactory myMonsterFactory = new MonsterFactory();
+				
+				mMonster = myMonsterFactory.generateMonster();
+				
+				Battle.battle(mHero, mMonster);
+			
+				//playGame(mHero);
 			}
 				
 		} while(playAgain());
@@ -101,6 +110,15 @@ public class Dungeon
     	
     	
     	// TODO Auto-generated method stub
+		
+	}
+
+	private static void playGame(Hero mHeroGame) {
+		
+		mGame = new Game(mHero);
+		Battle.battle(mHero, mMonster);
+		
+		//// TODO Auto-generated method stub
 		
 	}
 
@@ -194,7 +212,8 @@ public static void battle(Hero mHero, Monster mMonster) {
 			int attackOption = attackMenu(mHero, keyboard);
 			
 			if(attackOption == 1){
-				mHero.attack(mMonster);
+				
+				//mHero.attack(mMonster);
 			} 
 			//else if(attackOption == 2){
 				//mHero.specialAttack(mMonster);

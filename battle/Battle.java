@@ -1,5 +1,12 @@
+package battle;
+
+
+
+
 import java.util.Scanner;
 
+import characters.heros.*;
+import characters.monsters.*;
 
 /*-------------------------------------------------------------------
 battle is the actual combat portion of the game.  It requires a Hero
@@ -30,9 +37,9 @@ public class Battle {
 				if(attackOption == 1){
 					mHero.attack(mMonster);
 				} 
-				else if(attackOption == 2){
-					mHero.specialAttack(mMonster);
-				}
+				//else if(attackOption == 2){
+					//mHero.specialAttack(mMonster);
+				//}
 				
 				mHero.numTurns--;
 				

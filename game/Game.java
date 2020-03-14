@@ -10,6 +10,13 @@ public class Game {
 	}
 	
 	
+	public Game(Hero mHero2) {
+		this.mHero = mHero2;
+		
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public Hero getHero() {
 		return mHero;
 	}

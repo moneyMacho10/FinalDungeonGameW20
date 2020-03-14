@@ -75,8 +75,8 @@ public class Battle {
 
 		do {
 			System.out.println("1) Normal Attack");
-			System.out.println("2) " + mHero.specialAttackDescription());
-			System.out.print("Choice --> ");
+			//System.out.println("2) " + mHero.specialAttackDescription());
+			//System.out.print("Choice --> ");
 
 			choice = keyboard.nextLine();
 

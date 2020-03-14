@@ -9,3 +9,8 @@
 /Thief.class
 /Warrior.class
 /Battle.class
+/HeroFactory.class
+/Attack.class
+/Game.class
+/MonsterFactory.class
+/Maze.class

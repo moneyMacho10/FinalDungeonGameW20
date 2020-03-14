@@ -48,12 +48,18 @@ import java.util.Scanner;
 */
 public class Dungeon
 {
-    public static void main(String[] args)
+	public static Hero mHero;
+	
+	static Maze mMaze;
+	static Monster mMonster;
+	
+	//static Dungeon dungeon;
+    static Game mGame;
+    
+    Battle mBattle;
+
+	public static void main(String[] args)
 	{
-
-
-    	Hero theHero;
-		Monster theMonster;
 
 		Scanner keyboard = new Scanner(System.in);
 
@@ -61,11 +67,7 @@ public class Dungeon
 		{
 		    
 			gameRules();
-			
-			
-		    
-			
-
+		
 			System.out.println("1) PLAY GAME");
 			System.out.println("Game Choice: ");
 			
@@ -73,18 +75,36 @@ public class Dungeon
 			
 			if(startGame.equalsIgnoreCase("1")) {
 			                                                 
-				theHero = chooseHero(keyboard);
-				theMonster = generateMonster();
-				Battle.battle(theHero, theMonster);
-	//		                battle(theHero, theMonster);  
-			}                                                 
+		
+				HeroFactory myHeroFactory = new HeroFactory();
+				mHero = myHeroFactory.generateHero("Hero");
+				//battle
+				
+		
+				//playGame(maze, mHero);
+			}
+				
+		} while(playAgain());
+		
+			System.out.println("DUNGEON GAME MODE: CREATORS THANKS FOR PLAYING");
 			
-			
-		} while (playAgain());
+    
+    	if(!mHero.isAlive()) {
+    		System.out.println("GG GAME OVER");
+    	}
+    	else {
+    		System.out.println("you found four oo pillars");
+    	}
+    	//add else if(mHero.isAQuitter()
+    	
 
-    }//end main method
+    	
+    	
+    	// TODO Auto-generated method stub
+		
+	}
 
-    private static void gameRules() {
+	private static void gameRules() {
 		
     	  System.out.println("Dungeon Maze Game: ");
     	  System.out.println("_____________________________________________________________________________________________");
@@ -111,7 +131,7 @@ public class Dungeon
 					       "1. Warrior\n" +
 						   "2. Sorceress\n" +
 						   "3. Thief");
-		choice = keyboard.nextLine();
+		choice =  keyboard.nextLine();
 
 		switch(choice)
 		{
@@ -126,26 +146,7 @@ public class Dungeon
 		}//end switch
 	}//end chooseHero method
 
-/*-------------------------------------------------------------------
- * Monster: generateMonster() method will become factory pattern for monsters  inside the dungeon character class
- * 
-generateMonster randomly selects a Monster and returns it.  It utilizes
-a polymorphic reference (Monster) to accomplish this task.
----------------------------------------------------------------------*/
-	public static Monster generateMonster()
-	{
-		Random random = new Random();
-		int choice = random.nextInt(3);
 
-		switch(choice)
-		{
-			case 1: return new Ogre();
-
-			case 2: return new Gremlin();
-
-			default: return new Skeleton(); // 0
-		}//end switch
-	}//end generateMonster method
 
 /*-------------------------------------------------------------------
 playAgain allows gets choice from user to play another game.  It returns
@@ -172,9 +173,90 @@ true if the user chooses to continue, false otherwise.
 
 
 
-}//end Dungeon class
+//end Dungeon class
 
 
+
+public static void battle(Hero mHero, Monster mMonster) {
+	Scanner keyboard = new Scanner(System.in);
+	Boolean userQuits = false; 
+	
+	System.out.println("|_____________________________|");
+	
+	while(mHero.isAlive() && mMonster.isAlive() && !userQuits) {
+		mHero.determineNumberOfTurns(mMonster);
+		
+		while(mHero.numTurns > 0 && mMonster.isAlive()) {
+			
+			
+			System.out.println("Number of Attacks Left: " + mHero.numTurns);
+			
+			int attackOption = attackMenu(mHero, keyboard);
+			
+			if(attackOption == 1){
+				mHero.attack(mMonster);
+			} 
+			//else if(attackOption == 2){
+				//mHero.specialAttack(mMonster);
+		//	}
+			
+			mHero.numTurns--;
+			
+			
+		}
+		
+		//monster's turn (provided it's still alive!)
+		if (mMonster.isAlive())
+			mMonster.attack(mHero);
+
+		//let the player bail out if desired
+		System.out.println();
+		System.out.print("Turn Over -->q to quit, anything else to continue: ");
+		String quitCheck = keyboard.nextLine();
+		userQuits = quitCheck.equalsIgnoreCase("q");
+	}
+	//end battle loop
+
+			printBattleResults(mHero, mMonster);
+	}//end battle method
+
+
+	
+
+
+private static void printBattleResults(Hero mHero, Monster mMonster) {
+	if (!mMonster.isAlive())
+		System.out.println(mHero.getName() + " IS VICTORIOUS!");
+	else if (!mHero.isAlive())
+		System.out.println(mHero.getName() + " was defeated  :-(");
+	else//both are alive so user quit the game
+		System.out.println("You cant quit now, fight the monster!!!");
+}
+
+
+
+private static int attackMenu(Hero mHero, Scanner keyboard) {
+
+	String choice;
+
+	do {
+		System.out.println("1) Normal Attack");
+		//System.out.println("2) " + mHero.specialAttackDescription());
+		System.out.print("Choice --> ");
+
+		choice = keyboard.nextLine();
+
+		if(!(choice.equals("1") || choice.equals("2")))
+		{
+			System.out.println("You havent mastered any other moves!!");
+		}
+
+	}while(!(choice.equals("1") || choice.equals("2")));
+
+	return Integer.parseInt(choice);
+}
+
+}
 
 
 //

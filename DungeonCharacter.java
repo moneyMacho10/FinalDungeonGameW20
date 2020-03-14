@@ -39,7 +39,7 @@ public abstract class DungeonCharacter
 	protected int attackSpeed;
 	protected double chanceToHit;
 	protected int damageMin, damageMax;
-
+	protected Attack mAttack;
 	
 
 //-----------------------------------------------------------------
@@ -156,7 +156,13 @@ This method calls: Math.random(), subtractHitPoints()
 This method is called by: overridden versions of the method in monster and
 hero classes and externally
 ---------------------------------------------------------*/
-	public void attack(DungeonCharacter opponent)
+	public void attack(DungeonCharacter monster) {
+		mAttack.attack(monster, this);
+		
+	}
+
+	/*
+    public void attack(DungeonCharacter opponent)
 	{
 		boolean canAttack;
 		int damage;
@@ -183,6 +189,9 @@ hero classes and externally
 
 	}//end attack method
 
+
+*/
+	
 //-----------------------------------------------------------------
 
 

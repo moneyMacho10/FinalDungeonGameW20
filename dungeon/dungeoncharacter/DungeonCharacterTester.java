@@ -1,13 +1,9 @@
+package dungeon.dungeoncharacter;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 73731596a008609bb293c927382137c907d4ce77
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-<<<<<<< HEAD
 //does not test void methods
 
 class DungeonCharacterTester {
@@ -35,22 +31,6 @@ class DungeonCharacterTester {
 		gremlin = new Gremlin();
 	}
 	
-	//The following 3 tests only need to test one monster or hero because these methods are inherited from DungeonCharacter
-=======
-
-
-class DungeonCharacterTester {
-
-	DungeonCharacter warrior;
-	DungeonCharacter ogre;
-	
-	@BeforeEach
-	public void setUp() throws Exception{
-		warrior = new Warrior();
-		ogre = new Ogre();
-	}
-	
->>>>>>> 73731596a008609bb293c927382137c907d4ce77
 	@Test
 	public void testAddHitPoints() {
 		int addedHP = 5;
@@ -61,7 +41,6 @@ class DungeonCharacterTester {
 		ogre.addHitPoints(addedHP);
 		assertEquals(205, ogre.getHitPoints());
 	}
-<<<<<<< HEAD
 	
 	@Test
 	public void testSubtractHitPoints() {
@@ -86,7 +65,4 @@ class DungeonCharacterTester {
 		assertTrue(sorceress.specialAttackDescription().equals("Increase Hit Points"));
 		assertTrue(thief.specialAttackDescription().equals("Surprise Attack"));
 	}
-=======
-
->>>>>>> 73731596a008609bb293c927382137c907d4ce77
 }

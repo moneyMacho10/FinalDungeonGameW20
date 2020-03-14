@@ -1,5 +1,6 @@
 package dungeon.dungeoncharacter;
 
+
 /**
  * Title:
  * Description:
@@ -14,6 +15,7 @@ public class Ogre extends Monster
 
     Ogre()
 	{
+    	//name, hitPoints, attackSpeed, chanceToHit, chanceToHeal, damageMin, damageMax, minHeal, maxHeal
 		super("Oscar the Ogre", 200, 2, .6, .1, 30, 50, 30, 50);
 
 

@@ -1,4 +1,8 @@
+<<<<<<< HEAD:dungeon/dungeoncharacter/Dungeon.java
 package dungeon.dungeoncharacter;
+=======
+
+>>>>>>> master:Dungeon.java
 import java.util.Random;
 import java.util.Scanner;
 

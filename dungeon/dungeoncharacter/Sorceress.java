@@ -20,6 +20,7 @@ public class Sorceress extends Hero
 //-----------------------------------------------------------------
     public Sorceress()
 	{
+    	//name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax, chanceToBlock
 		super("Sorceress", 75, 5, .7, 25, 50, .3);
     }//end constructor
 

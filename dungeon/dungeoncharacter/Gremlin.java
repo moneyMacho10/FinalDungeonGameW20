@@ -1,5 +1,8 @@
+<<<<<<< HEAD:dungeon/dungeoncharacter/Gremlin.java
 package dungeon.dungeoncharacter;
 
+=======
+>>>>>>> master:Gremlin.java
 /**
  * Title:
  * Description:
@@ -14,6 +17,7 @@ public class Gremlin extends Monster
 
     Gremlin()
 	{
+    	//name, hitPoints, attackSpeed, chanceToHit, chanceToHeal, damageMin, damageMax, minHeal, maxHeal
 		super("Gnarltooth the Gremlin", 70, 5, .8, .4, 15, 30, 20, 40);
 
     }//end constructor

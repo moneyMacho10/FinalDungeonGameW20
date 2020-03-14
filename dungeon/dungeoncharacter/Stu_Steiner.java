@@ -1,33 +1,23 @@
-
 package dungeon.dungeoncharacter;
 
-/**
- * Title:
- * Description:
- * Copyright:    Copyright (c) 2001
- * Company:
- * @author
- * @version 1.0
- */
-
-public class Gremlin extends Monster
+public class Stu_Steiner extends Monster
 {
 
-    Gremlin()
+    Stu_Steiner()
 	{
     	//name, hitPoints, attackSpeed, chanceToHit, chanceToHeal, damageMin, damageMax, minHeal, maxHeal
-		super("Gnarltooth the Gremlin", 70, 5, .8, .4, 15, 30, 20, 40);
+		super("Evil Stu Steiner", 60, 2, 1, .8, 30, 40, 35, 55);
 
     }//end constructor
 
 	@Override
 	public void attack(DungeonCharacter opponent)
 	{
-		System.out.println(name + " jabs his kris at " +
+		System.out.println(name + " belly bumps " +
 							opponent.getName() + ":");
 		super.attack(opponent);
 
 	}//end override of attack
 
 
-}//end class Gremlin
+}//end class Skeleton

@@ -160,6 +160,9 @@ hero classes and externally
 ---------------------------------------------------------*/
 	public void attack(DungeonCharacter opponent)
 	{
+		if(opponent == null)
+				throw new IllegalArgumentException("Cannot attack null object");
+		
 		boolean canAttack;
 		int damage;
 

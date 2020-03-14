@@ -1,33 +1,23 @@
-
 package dungeon.dungeoncharacter;
 
-/**
- * Title:
- * Description:
- * Copyright:    Copyright (c) 2001
- * Company:
- * @author
- * @version 1.0
- */
-
-public class Gremlin extends Monster
+public class Zombie extends Monster
 {
 
-    Gremlin()
+    Zombie()
 	{
     	//name, hitPoints, attackSpeed, chanceToHit, chanceToHeal, damageMin, damageMax, minHeal, maxHeal
-		super("Gnarltooth the Gremlin", 70, 5, .8, .4, 15, 30, 20, 40);
+		super("Xurg the Zombie", 120, 5, .9, .1, 35, 55, 20, 25);
 
     }//end constructor
 
 	@Override
 	public void attack(DungeonCharacter opponent)
 	{
-		System.out.println(name + " jabs his kris at " +
+		System.out.println(name + " chomps his jaws at " +
 							opponent.getName() + ":");
 		super.attack(opponent);
 
 	}//end override of attack
 
 
-}//end class Gremlin
+}//end class Skeleton

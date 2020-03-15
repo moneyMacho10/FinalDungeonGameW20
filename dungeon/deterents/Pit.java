@@ -13,7 +13,7 @@ public class Pit {
 	
 	public void fallInPit() {
 		Random randomDamage = new Random();
-		
+		this.damageDealt = randomDamage.nextInt(this.maxDamage) + this.minDamage;
 		
 	}
 }

@@ -1,0 +1,14 @@
+package dungeon.deterents;
+
+public class Pit {
+	private int minDamage;
+	private int maxDamage;
+	
+	Pit(){
+		
+	}
+	
+	public void fallIn() {
+		
+	}
+}

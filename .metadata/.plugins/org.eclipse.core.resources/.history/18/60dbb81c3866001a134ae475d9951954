@@ -1,0 +1,20 @@
+package dungeon.pillars;
+
+public abstract class Pillar {
+	private int numberOfColumns;
+	private String encapsulation;
+	private String abstraction;
+	private String inheritance;
+	private String polymorphism;
+	
+	public Pillar() {
+		this.encapsulation = null;
+		this.abstraction = null;
+		this.inheritance = null;
+		this.polymorphism = null;
+	}
+	
+	public 
+	
+	
+}

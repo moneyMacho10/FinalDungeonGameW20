@@ -1,0 +1,14 @@
+package dungeon.pillars;
+
+public abstract class Pillar {
+	private int numberOfColumns;
+	private String encapsulation = null;
+	private String abstraction = null;
+	private String inheritance = null;
+	private String polymorphism = null;
+	
+	public int getNumberOfColumns() {
+	}
+	
+	
+}

@@ -41,7 +41,7 @@ public class Pillar {
 			return this.polymorphism;
 			
 		}else {
-			return "Error: Random number generator for pillars is incorrect"
+			return "Error: Random number generator for pillars is incorrect";
 		}
 	}
 	

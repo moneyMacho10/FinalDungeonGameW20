@@ -1,0 +1,14 @@
+package dungeon.pillars;
+
+public abstract class Pillar {
+	private int numberOfColumns;
+	private 
+	
+	public abstract toString();
+	
+	public int getNumberOfColumns() {
+		return this.numberOfColumns;
+	}
+	
+	
+}

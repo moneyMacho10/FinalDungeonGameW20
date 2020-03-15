@@ -1,0 +1,8 @@
+package dungeon.pillars;
+
+public abstract class Pillar {
+	private boolean found;
+	private int numberOfColumns;
+	
+	
+}

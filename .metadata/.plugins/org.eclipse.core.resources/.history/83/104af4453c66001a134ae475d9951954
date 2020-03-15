@@ -1,0 +1,16 @@
+package dungeon.deterents;
+import java.util.Random;
+
+public class Pit {
+	private int minDamage;
+	private int maxDamage;
+	
+	Pit(){
+		this.minDamage = 10;
+		this.maxDamage = 30;
+	}
+	
+	public void fallInPit() {
+		
+	}
+}

@@ -1,5 +1,5 @@
 package dungeon.potions;
-import dungeon.dungeoncharacter.DungeonCharacter;
+import dungeon.characters.DungeonCharacter;
 import java.util.Random;
 
 public class HealingPotion implements Potions{

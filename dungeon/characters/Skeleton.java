@@ -1,6 +1,4 @@
-package dungeon.dungeoncharacter;
-
-
+package dungeon.characters;
 /**
  * Title:
  * Description:
@@ -15,7 +13,6 @@ public class Skeleton extends Monster
 
     Skeleton()
 	{
-    	//name, hitPoints, attackSpeed, chanceToHit, chanceToHeal, damageMin, damageMax, minHeal, maxHeal
 		super("Sargath the Skeleton", 100, 3, .8, .3, 30, 50, 30, 50);
 
     }//end constructor

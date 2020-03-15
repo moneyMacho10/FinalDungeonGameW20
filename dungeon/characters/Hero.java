@@ -1,8 +1,4 @@
-<<<<<<< HEAD:dungeon/dungeoncharacter/Hero.java
-package dungeon.dungeoncharacter;
-=======
-
->>>>>>> master:Hero.java
+package dungeon.characters;
 import java.util.Scanner;
 
 /**

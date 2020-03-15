@@ -1,5 +1,4 @@
-package dungeon.dungeoncharacter;
-
+package dungeon.characters;
 
 /**
  * Title:
@@ -18,9 +17,8 @@ public class Sorceress extends Hero
 	public final int MAX_ADD = 50;
 	
 //-----------------------------------------------------------------
-    public Sorceress()
+    Sorceress()
 	{
-    	//name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax, chanceToBlock
 		super("Sorceress", 75, 5, .7, 25, 50, .3);
     }//end constructor
 

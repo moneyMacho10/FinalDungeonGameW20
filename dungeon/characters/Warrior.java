@@ -1,6 +1,4 @@
-package dungeon.dungeoncharacter;
-
-
+package dungeon.characters;
 /**
  * Title:
  * Description:
@@ -18,9 +16,7 @@ public class Warrior extends Hero
 
     Warrior()
 	{
-    	//name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax, chanceToBlock
 		super("Warrior", 125, 4, .8, 35, 60, .2);
-
 
     }//end constructor
 

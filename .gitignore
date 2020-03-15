@@ -1,5 +1,6 @@
 /Dungeon.class
 /DungeonCharacter.class
+/DungeonCharacterTester.class
 /Gremlin.class
 /Hero.class
 /Monster.class
@@ -8,3 +9,4 @@
 /Sorceress.class
 /Thief.class
 /Warrior.class
+/DungeonCharacterIllegalArgumentException.class

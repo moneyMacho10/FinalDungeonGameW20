@@ -5,6 +5,14 @@ public class MazeTester {
 		Maze maze = new Maze();
 		
 		System.out.println(maze.toString());
+		
+		maze.getNextLocation(2);
+		
+		System.out.println(maze.toString());
+		
+		maze.getNextLocation(3);
+		
+		System.out.println(maze.toString());
 	}
 	
 	

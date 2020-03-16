@@ -7,13 +7,7 @@ public class RoomTester {
 		
 		room.setEastDoor();
 		room.setNorthDoor();
-		
-		System.out.println(room.isEastDoor());
-		System.out.println(room.isNorthDoor());
-		System.out.println(room.isSouthDoor());
-		System.out.println(room.isWestDoor());
 
-		
 		System.out.println(room.toString());
 	}
 	

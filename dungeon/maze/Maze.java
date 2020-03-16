@@ -12,21 +12,21 @@ public class Maze {
 	private int rowPosition;
 	private int columnPosition;
 	private int numberOfColumns;
-	
-	public Maze(){
+
+	public Maze() {
 		maze = new Room[6][6];
 
-		for(int i = 0; i < maze.length; i++) {
-			for(int j = 0; j < maze[i].length; j++) {
+		for (int i = 0; i < maze.length; i++) {
+			for (int j = 0; j < maze[i].length; j++) {
 				maze[i][j] = new Room();
 			}
 		}
-		
+
 		this.entrance = maze[0][0];
 		this.exit = maze[5][5];
 		this.currentRoom = this.entrance;
-		
-		//Row 0
+
+		// Row 0
 		this.maze[0][0].setSouthDoor();
 		this.maze[0][0].setEastDoor();
 		this.maze[0][1].setWestDoor();
@@ -36,7 +36,7 @@ public class Maze {
 		this.maze[0][3].setWestDoor();
 		this.maze[0][3].setSouthDoor();
 
-		//Row 1
+		// Row 1
 		this.maze[1][0].setNorthDoor();
 		this.maze[1][0].setSouthDoor();
 		this.maze[1][1].setNorthDoor();
@@ -45,8 +45,8 @@ public class Maze {
 		this.maze[1][2].setWestDoor();
 		this.maze[1][2].setNorthDoor();
 		this.maze[1][3].setNorthDoor();
-		
-		//Row 2
+
+		// Row 2
 		this.maze[2][0].setNorthDoor();
 		this.maze[2][0].setSouthDoor();
 		this.maze[2][1].setNorthDoor();
@@ -55,8 +55,8 @@ public class Maze {
 		this.maze[2][2].setEastDoor();
 		this.maze[2][2].setWestDoor();
 		this.maze[2][3].setWestDoor();
-		
-		//Row 3
+
+		// Row 3
 		this.maze[3][0].setNorthDoor();
 		this.maze[3][0].setEastDoor();
 		this.maze[3][1].setWestDoor();
@@ -64,62 +64,61 @@ public class Maze {
 		this.maze[3][2].setEastDoor();
 		this.maze[3][3].setWestDoor();
 
-		
-		
 	}
-	
-	public Room[][] getMaze(){
+
+	public Room[][] getMaze() {
 		return this.maze;
 	}
-	
+
 	public Room getCurrentRoom() {
 		return this.currentRoom;
 	}
-	
+
 	public void setCurrentRoom(int row, int column) {
 		this.rowPosition = row;
 		this.columnPosition = column;
 		this.currentRoom = this.maze[this.rowPosition][this.columnPosition];
 	}
-	
+
 	public int getRowPosition() {
 		return this.rowPosition;
 	}
-	
+
 	public int getColumnPosition() {
 		return this.columnPosition;
 	}
-	
-	//TODO Either make this part recursive or have scanner ask for valid input if invalid
+
+	// TODO Either make this part recursive or have scanner ask for valid input if
+	// invalid
 	public void getNextLocation(int direction) {
-		/* 1. Up
-		 * 2. Right
-		 * 3. Down
-		 * 4. Left
+		/*
+		 * 1. Up 2. Right 3. Down 4. Left
 		 */
-		
-		if(direction == 1 && this.currentRoom.isNorthDoor()) 
-			this.currentRoom = this.maze[this.rowPosition - 1][this.columnPosition];
-			
-		else if(direction == 2 && this.currentRoom.isEastDoor())
-			this.currentRoom = this.maze[this.rowPosition][this.columnPosition + 1];
 
-		else if(direction == 3 && this.currentRoom.isSouthDoor())
-			this.currentRoom = this.maze[this.rowPosition + 1][this.columnPosition];
-		
-		else if(direction == 4 && this.currentRoom.isWestDoor())
-			this.currentRoom = this.maze[this.rowPosition][this.columnPosition - 1];
+		if (direction == 1 && this.currentRoom.isNorthDoor()) {
+			this.rowPosition -= 1;
+			this.currentRoom = this.maze[this.rowPosition][this.columnPosition];
 
+		} else if (direction == 2 && this.currentRoom.isEastDoor()) {
+			this.columnPosition += 1;
+			this.currentRoom = this.maze[this.rowPosition][this.columnPosition];
 			
+
+		} else if (direction == 3 && this.currentRoom.isSouthDoor()) {
+			this.rowPosition += 1;
+			this.currentRoom = this.maze[this.rowPosition][this.columnPosition];
+
+		} else if (direction == 4 && this.currentRoom.isWestDoor()) {
+			this.columnPosition -= 1;
+			this.currentRoom = this.maze[this.rowPosition][this.columnPosition];
+
+		}
+		
 	}
-	
-	
-	
-	
-	
+
 	@Override
 	public String toString() {
 		return this.currentRoom.toString();
 	}
-	
+
 }

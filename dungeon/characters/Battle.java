@@ -9,8 +9,6 @@ and a Monster to be passed in.  Battle occurs in rounds.  The Hero
 goes first, then the Monster.  At the conclusion of each round, the
 user has the option of quitting.
 ---------------------------------------------------------------------*/
-
-
 public class Battle {
 
 	public static void battle(Hero mHero, Monster mMonster) {
@@ -32,9 +30,9 @@ public class Battle {
 				if(attackOption == 1){
 					mHero.attack(mMonster);
 				} 
-				//else if(attackOption == 2){
-					//mHero.specialAttack(mMonster);
-				//}
+				else if(attackOption == 2){
+					mHero.specialAttack(mMonster);
+				}
 				
 				mHero.numTurns--;
 				
@@ -77,8 +75,8 @@ public class Battle {
 
 		do {
 			System.out.println("1) Normal Attack");
-			//System.out.println("2) " + mHero.specialAttackDescription());
-			//System.out.print("Choice --> ");
+			System.out.println("2) " + mHero.specialAttackDescription());
+			System.out.print("Choice --> ");
 
 			choice = keyboard.nextLine();
 

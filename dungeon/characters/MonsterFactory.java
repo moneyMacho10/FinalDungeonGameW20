@@ -27,7 +27,7 @@ public class MonsterFactory {
 		public Monster generateMonster()
 		{
 			Random random = new Random();
-			int choice = random.nextInt(3);
+			int choice = random.nextInt(4);
 
 			switch(choice)
 			{
@@ -35,7 +35,13 @@ public class MonsterFactory {
 
 				case 2: return new Gremlin();
 
-				default: return new Skeleton(); // 0
+				case 3: return new Skeleton(); 
+				
+				case 4: return new Zombie();
+				
+				case 5: return new Stu_Steiner();
+				
+				default: return new Ogre();// 0
 			}//end switch
 		}//end generateMonster method
 	

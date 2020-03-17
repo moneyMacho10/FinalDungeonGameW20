@@ -29,6 +29,12 @@ public class HeroFactory {
 		case "3":
 			return new Thief();
 			
+		case "4":
+			return new Wonder_Duck();
+		
+		case "5":
+			return new Tom_Capaul();
+			
 		default:
 			return new Warrior();
 			
@@ -41,12 +47,10 @@ public class HeroFactory {
 				"1. Warrior\n" +
 		        "2. Sorceress\n" +
 		        "3. Thief\n" +
-		            
+		        "4. Wonder Duck\n" +
+		        "5. Tom Capaul\n" +
 		        "Choose a hero -->"				
 				);
-	
-	
-	
 	}
 	
 	

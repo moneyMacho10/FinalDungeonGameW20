@@ -95,31 +95,19 @@ public class Dungeon
 				
 		} while(playAgain());
 		
-			System.out.println("DUNGEON GAME MODE: CREATORS THANKS FOR PLAYING");
+		System.out.println("DUNGEON GAME MODE: CREATORS THANKS FOR PLAYING");
 			
-    
     	if(!mHero.isAlive()) {
     		System.out.println("GG GAME OVER");
     	}
     	else {
     		System.out.println("you found four oo pillars");
     	}
-    	//add else if(mHero.isAQuitter()
-    	
-
-    	
-    	
-    	// TODO Auto-generated method stub
-		
 	}
 
 	private static void playGame(Hero mHeroGame) {
-		
 		mGame = new Game(mHero);
 		Battle.battle(mHero, mMonster);
-		
-		//// TODO Auto-generated method stub
-		
 	}
 
 	private static void gameRules() {
@@ -141,10 +129,11 @@ public class Dungeon
 	returns it.  It utilizes a polymorphic reference (Hero) to accomplish
 	this task
 	---------------------------------------------------------------------*/
-/*-------------------------------------------------------------------
-	playAgain allows gets choice from user to play another game.  It returns
-true if the user chooses to continue, false otherwise.
----------------------------------------------------------------------*/
+	
+	/*-------------------------------------------------------------------
+		playAgain allows gets choice from user to play another game.  It returns
+	true if the user chooses to continue, false otherwise.
+	---------------------------------------------------------------------*/
 	public static boolean playAgain()
 	{
 		Scanner keyboard = new Scanner(System.in);

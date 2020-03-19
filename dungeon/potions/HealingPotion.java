@@ -6,6 +6,8 @@ public class HealingPotion implements Potions{
 	private int healingDone;
 	private int maxHealth = 20;
 
+	public HealingPotion() {
+	}
 	@Override
 	public void usePotion(DungeonCharacter character) {
 	

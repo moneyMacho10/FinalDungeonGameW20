@@ -1,7 +1,7 @@
 package dungeon.maze;
 
 import java.util.ArrayList;
-
+import dungeon.pillars.Pillar;
 import dungeon.room.Room;
 
 public class Maze {
@@ -11,21 +11,37 @@ public class Maze {
 	private Room exit;
 	private int rowPosition;
 	private int columnPosition;
-	private int numberOfColumns;
-
+	private int numberOfPillars;
+	private Pillar pillar;
+	
 	public Maze() {
-		maze = new Room[6][6];
+		maze = new Room[4][4];
 
 		for (int i = 0; i < maze.length; i++) {
 			for (int j = 0; j < maze[i].length; j++) {
+				
 				maze[i][j] = new Room();
 			}
 		}
 
 		this.entrance = maze[0][0];
-		this.exit = maze[5][5];
+		this.exit = maze[3][3];
+		
+		this.entrance.setDiscoverable(null, ' ');
+		this.exit.setDiscoverable(null, ' ');
+
 		this.currentRoom = this.entrance;
 
+		this.createDoors();
+		
+		this.maze[1][0].setDiscoverable(pillar, 'O');
+		this.maze[1][3].setDiscoverable(pillar, 'O');
+		this.maze[2][3].setDiscoverable(pillar, 'O');
+		this.maze[3][1].setDiscoverable(pillar, 'O');
+
+	}
+	
+	private void createDoors() {
 		// Row 0
 		this.maze[0][0].setSouthDoor();
 		this.maze[0][0].setEastDoor();
@@ -63,7 +79,6 @@ public class Maze {
 		this.maze[3][2].setNorthDoor();
 		this.maze[3][2].setEastDoor();
 		this.maze[3][3].setWestDoor();
-
 	}
 
 	public Room[][] getMaze() {
@@ -88,8 +103,6 @@ public class Maze {
 		return this.columnPosition;
 	}
 
-	// TODO Either make this part recursive or have scanner ask for valid input if
-	// invalid
 	public void getNextLocation(int direction) {
 		/*
 		 * 1. Up 2. Right 3. Down 4. Left
@@ -112,6 +125,8 @@ public class Maze {
 			this.columnPosition -= 1;
 			this.currentRoom = this.maze[this.rowPosition][this.columnPosition];
 
+		} else {
+			System.out.println("\nGood Sir, that is a wall. \n");
 		}
 		
 	}

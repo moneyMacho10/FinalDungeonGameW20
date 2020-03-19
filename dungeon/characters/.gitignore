@@ -15,3 +15,5 @@
 /Warrior.class
 /Wonder_Duck.class
 /Zombie.class
+/AttackType.class
+/AttackTypeFactory.class

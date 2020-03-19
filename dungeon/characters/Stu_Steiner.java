@@ -1,15 +1,13 @@
 package dungeon.characters;
 
-public class Stu_Steiner extends Monster
-{
+public class Stu_Steiner extends Monster {
 
-    Stu_Steiner()
-	{
-    	//name, hitPoints, attackSpeed, chanceToHit, chanceToHeal, damageMin, damageMax, minHeal, maxHeal
+    Stu_Steiner() {
+    	
 		super("Evil Stu Steiner", 60, 2, 1, .8, 30, 40, 35, 55);
 
     }//end constructor
-
+/*
 	@Override
 	public void attack(DungeonCharacter opponent)
 	{
@@ -18,6 +16,9 @@ public class Stu_Steiner extends Monster
 		super.attack(opponent);
 
 	}//end override of attack
-
-
-}//end class Skeleton
+*/
+    @Override
+    public String attackDescription() {
+    	return "belly bumps";
+    }
+}//end class Stu_Steiner

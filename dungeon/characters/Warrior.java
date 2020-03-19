@@ -1,43 +1,25 @@
 package dungeon.characters;
-/**
- * Title:
- * Description:
- * Copyright:    Copyright (c) 2001
- * Company:
- * @author
- * @version 1.0
- */
 
-
-
-
-public class Warrior extends Hero
-{
-
-    Warrior()
-	{
+public class Warrior extends Hero {
+    Warrior() {
+    	
 		super("Warrior", 125, 4, .8, 35, 60, .2);
-
-    }//end constructor
-
-
-	private void crushingBlow(DungeonCharacter opponent)
-	{
-		if (Math.random() <= .4)
-		{
+    }
+    
+	private void crushingBlow(DungeonCharacter opponent) {
+		
+		if (Math.random() <= .4) {
 			int blowPoints = (int)(Math.random() * 76) + 100;
-			System.out.println(name + " lands a CRUSHING BLOW for " + blowPoints
-								+ " damage!");
+			System.out.println(name + " lands a CRUSHING BLOW for " + blowPoints + " damage!");
 			opponent.subtractHitPoints(blowPoints);
-		}//end blow succeeded
-		else
-		{
+		}
+		else {
 			System.out.println(name + " failed to land a crushing blow");
 			System.out.println();
-		}//blow failed
+		}
 
 	}//end crushingBlow method
-
+/*
 	@Override
 	public void attack(DungeonCharacter opponent)
 	{
@@ -45,10 +27,14 @@ public class Warrior extends Hero
 							opponent.getName() + ":");
 		super.attack(opponent);
 	}//end override of attack method
-
+*/
 	@Override
-	public void specialAttack(Monster theMonster)
-	{
+	public String attackDescription() {
+		return "swings mighty sword";
+	}
+	
+	@Override
+	public void specialAttack(Monster theMonster) {
 		crushingBlow(theMonster);
 	}
 
@@ -56,4 +42,4 @@ public class Warrior extends Hero
 	public String specialAttackDescription() {
 		return "Crushing Blow";
 	}
-}//end Hero class
+}//end class Warrior

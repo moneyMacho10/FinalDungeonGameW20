@@ -1,7 +1,7 @@
 package dungeon.characters;
 
-
 import java.util.Scanner;
+import dungeon.characters.Attack;
 
 /*-------------------------------------------------------------------
 battle is the actual combat portion of the game.  It requires a Hero
@@ -9,56 +9,62 @@ and a Monster to be passed in.  Battle occurs in rounds.  The Hero
 goes first, then the Monster.  At the conclusion of each round, the
 user has the option of quitting.
 ---------------------------------------------------------------------*/
+
 public class Battle {
 
 	public static void battle(Hero mHero, Monster mMonster) {
+		
 		Scanner keyboard = new Scanner(System.in);
 		Boolean userQuits = false; 
+		AttackTypeFactory factory = new AttackTypeFactory();
+		AttackType attacks = new AttackType("");
 		
-		System.out.println("|_____________________________|");
+		System.out.println("_____________________________________________________________________________________________\n");
 		
 		while(mHero.isAlive() && mMonster.isAlive() && !userQuits) {
-			mHero.determineNumberOfTurns(mMonster);
+
+			int numOfTurns = mHero.determineNumberOfTurns(mMonster);
 			
-			while(mHero.numTurns > 0 && mMonster.isAlive()) {
-				
-				
-				System.out.println("Number of Attacks Left: " + mHero.numTurns);
+			while(numOfTurns > 0 && mMonster.isAlive()) {	
+		
+				System.out.println("Number of Attacks Left: " + numOfTurns);
 				
 				int attackOption = attackMenu(mHero, keyboard);
 				
 				if(attackOption == 1){
-					mHero.attack(mMonster);
+					attacks.setAttackType(mHero.attackDescription());
+					attacks.attack(mHero, mMonster);
 				} 
 				else if(attackOption == 2){
-					mHero.specialAttack(mMonster);
+					attacks.setAttackType(mHero.specialAttackDescription());
+					attacks.attack(mHero, mMonster);
 				}
 				
-				mHero.numTurns--;
-				
+				numOfTurns--;
 				
 			}
 			
 			//monster's turn (provided it's still alive!)
-			if (mMonster.isAlive())
-				mMonster.attack(mHero);
-
-			//let the player bail out if desired
+			if (mMonster.isAlive()) {
+				attacks.setAttackType(mMonster.attackDescription());
+				attacks.attack(mMonster, mHero);
+			}
+			
+			//let player bail out if desired
 			System.out.println();
 			System.out.print("Turn Over -->q to quit, anything else to continue: ");
 			String quitCheck = keyboard.nextLine();
 			userQuits = quitCheck.equalsIgnoreCase("q");
-		}
-		//end battle loop
-
-				printBattleResults(mHero, mMonster);
-		}//end battle method
-	
-
+			
+		}//end battle loop
 		
+		printBattleResults(mHero, mMonster);
+		
+	}//end battle method
 	
 
 	private static void printBattleResults(Hero mHero, Monster mMonster) {
+		
 		if (!mMonster.isAlive())
 			System.out.println(mHero.getName() + " IS VICTORIOUS!");
 		else if (!mHero.isAlive())
@@ -66,8 +72,6 @@ public class Battle {
 		else//both are alive so user quit the game
 			System.out.println("You cant quit now, fight the monster!!!");
 	}
-
-
 
 	private static int attackMenu(Hero mHero, Scanner keyboard) {
 
@@ -88,9 +92,9 @@ public class Battle {
 		}while(!(choice.equals("1") || choice.equals("2")));
 
 		return Integer.parseInt(choice);
-	}
+	}//end attackMenu
 
-}
+}//end Battle Class
 
 
 	

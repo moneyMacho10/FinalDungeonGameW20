@@ -1,42 +1,27 @@
 package dungeon.characters;
 
-/**
- * Title:
- * Description:
- * Copyright:    Copyright (c) 2001
- * Company:
- * @author
- * @version 1.0
- */
-
-
-
-public class Sorceress extends Hero
-{
-	public final int MIN_ADD = 25;
-	public final int MAX_ADD = 50;
+public class Sorceress extends Hero {
 	
-//-----------------------------------------------------------------
-    Sorceress()
-	{
+	private final int MIN_ADD = 25;
+	private final int MAX_ADD = 50;
+	
+    Sorceress() {
+    	
 		super("Sorceress", 75, 5, .7, 25, 50, .3);
-    }//end constructor
+    }
 
-//-----------------------------------------------------------------
-	private void increaseHitPoints()
-    {
-	    int hPoints;
+	private void increaseHitPoints() {
+		
+		int hPoints;
 
 		hPoints = (int)(Math.random() * (MAX_ADD - MIN_ADD + 1)) + MIN_ADD;
 		addHitPoints(hPoints);
-		System.out.println(name + " added [" + hPoints + "] points.\n"
-							+ "Total hit points remaining are: "
-							+ hitPoints);
-		 System.out.println();
-
+		
+		System.out.println(name + " added [" + hPoints + "] points.\n" + "Total hit points remaining are: " + hitPoints);
+		System.out.println();
     }//end increaseHitPoints method
 
-//-----------------------------------------------------------------
+	/*
 	@Override
 	public void attack(DungeonCharacter opponent)
 	{
@@ -44,10 +29,14 @@ public class Sorceress extends Hero
 							opponent.getName() + ":");
 		super.attack(opponent);
 	}//end override of attack method
-
+*/
+	
 	@Override
-	public void specialAttack(Monster theMonster)
-	{
+	public String attackDescription() {
+		return "casts a fireball spell";
+	}
+	@Override
+	public void specialAttack(Monster theMonster) {
 		increaseHitPoints();
 	}
 
@@ -55,4 +44,5 @@ public class Sorceress extends Hero
 	public String specialAttackDescription() {
 		return "Increase Hit Points";
 	}
-}//end class
+	
+}//end class Sorceress

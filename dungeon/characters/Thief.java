@@ -1,42 +1,24 @@
 package dungeon.characters;
-/**
- * Title:
- * Description:
- * Copyright:    Copyright (c) 2001
- * Company:
- * @author
- * @version 1.0
- */
-
-public class Thief extends Hero
-{
-
-    Thief()
-	{
-		super("Thief", 75, 6, .8, 20, 40, .5);
-    }//end constructor
-
-	private void surpriseAttack(DungeonCharacter opponent)
-	{
-		double surprise = Math.random();
-		if (surprise <= .4)
-		{
-			System.out.println("Surprise attack was successful!\n" +
-								name + " gets an additional turn.");
-			numTurns++;
-			attack(opponent);
-		}//end surprise
-		else if (surprise >= .9)
-		{
-			System.out.println("Uh oh! " + opponent.getName() + " saw you and" +
-								" blocked your attack!");
-		}
-		else
-		    attack(opponent);
 
 
-	}//end surpriseAttack method
+public class Thief extends Hero {
 	
+	public final int MIN_ADD = 1;
+	public final int MAX_ADD = 3;
+	
+    Thief() {
+    	
+		super("Thief", 75, 6, .8, 20, 40, .5);
+    }
+
+    private void addAttackSpeed() {
+		
+		int addSpeed;
+
+		addSpeed = (int)(Math.random() * (MAX_ADD - MIN_ADD + 1)) + MIN_ADD;
+		addAttackSpeed(addSpeed);
+    }//end increaseHitPoints method
+/*
 	@Override
 	public void attack(DungeonCharacter opponent)
 	{
@@ -44,14 +26,19 @@ public class Thief extends Hero
 							opponent.getName() + ":");
 		super.attack(opponent);
 	}//end override of attack method
+*/
+	@Override
+    public String attackDescription() {
+    	return "kicks enemies face";
+    }
 	
 	@Override
 	public void specialAttack(Monster theMonster){
-    	surpriseAttack(theMonster);
+    	addAttackSpeed();
 	}
 
 	@Override
 	public String specialAttackDescription() {
-		return "Surprise Attack";
+		return "Quick Attack";
 	}
-}
+}//end class Thief

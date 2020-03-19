@@ -3,22 +3,13 @@ import java.util.Scanner;
 
 public class HeroFactory {
 
-	public Hero generateHero(String heroType) {
+	public Hero generateHero() {
 		
-		if(heroType.equalsIgnoreCase("hero")) {
-			return heroSelection(new Scanner(System.in));
-		}
-		else {
-			
-			throw new IllegalArgumentException("You're a fool. Not a hero.");
-			
-		}	
-	}
-	
-	public Hero heroSelection(Scanner keyboard) {
+		Scanner keyboard = new Scanner(System.in);
 		String selection; 
 		heroPromptSelection();
 		selection = keyboard.nextLine(); 
+		
 		switch(selection) {
 		case "1":
 			return new Warrior();
@@ -37,22 +28,18 @@ public class HeroFactory {
 			
 		default:
 			return new Warrior();
-			
 		}
 	}
 
 	private void heroPromptSelection() {
 		System.out.println("Select from the following heroes: " );
-		System.out.println(
-				"1. Warrior\n" +
-		        "2. Sorceress\n" +
-		        "3. Thief\n" +
-		        "4. Wonder Duck\n" +
-		        "5. Tom Capaul\n" +
-		        "Choose a hero -->"				
-				);
+		System.out.println("1. Warrior\n" +
+		        			"2. Sorceress\n" +
+		        			"3. Thief\n" +
+		        			"4. Wonder Duck\n" +
+		        			"5. Tom Capaul\n" +
+		        			"Choose a hero -->");
 	}
 	
-	
-	
-}
+}// end Hero Factory Class
+

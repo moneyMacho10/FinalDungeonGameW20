@@ -6,7 +6,7 @@ public class MonsterFactory {
 	public Monster generateMonster()
 	{
 		Random random = new Random();
-		int choice = random.nextInt(4);
+		int choice = random.nextInt(6);
 
 		switch(choice)
 		{

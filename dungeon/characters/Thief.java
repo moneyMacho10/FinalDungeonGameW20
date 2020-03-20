@@ -21,7 +21,7 @@ public class Thief extends Hero {
 
 	@Override
     public String attackDescription() {
-    	return "kicks enemies face";
+    	return "kicked";
     }
 	
 	@Override

@@ -27,7 +27,8 @@ public class AttackType implements Attack {
 		
 		if (canAttack)
 		{
-			damage = (int)(Math.random() * (attacker.damageMax - attacker.damageMin + 1)) + attacker.damageMin ;
+			damage = (int)(Math.random() * (attacker.damageMax - attacker.damageMin + 1)) + attacker.damageMin;
+			System.out.println(attacker.name + " " + attacker.attackDescription() + " at " + attacked.name);
 			attacked.subtractHitPoints(damage);
 		}//end if can attack
 		else

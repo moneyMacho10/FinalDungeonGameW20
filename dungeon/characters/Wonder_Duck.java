@@ -12,7 +12,7 @@ public class Wonder_Duck extends Hero
 	{
 		if (Math.random() <= .4) {
 			int blowPoints = (int)(Math.random() * 76) + 100;
-			System.out.println("You successfully blew their socks off! (by " + blowPoints + " points)\n");
+			System.out.println("You successfully blew their socks off! (by " + blowPoints + " hit points)\n");
 			opponent.subtractHitPoints(blowPoints);
 		}
 		else {

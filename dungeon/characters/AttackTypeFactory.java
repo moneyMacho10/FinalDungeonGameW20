@@ -1,7 +1,6 @@
 package dungeon.characters;
 
 import java.util.*;
-import dungeon.characters.Attack;
 import dungeon.characters.AttackType;
 
 public class AttackTypeFactory {

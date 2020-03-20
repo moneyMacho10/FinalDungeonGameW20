@@ -38,10 +38,10 @@ public abstract class DungeonCharacter {
 	public void addHitPoints(int hitPoints) {
 		
 		if (hitPoints <=0)
-			System.out.println("Hitpoint amount must be positive.");
+			System.out.println("Hitpoint amount must be positive.\n");
 		else {
 			this.hitPoints += hitPoints;
-			System.out.println("Remaining Hit Points: " + this.hitPoints);
+			System.out.println(this.name + " has " + this.hitPoints + " remaining health.\n");
 		}
 	}
 	
@@ -49,10 +49,10 @@ public abstract class DungeonCharacter {
 	public void addAttackSpeed(int addSpeed) {
 		
 		if(addSpeed <= 0)
-			System.out.println("Attack Speed amount must be positive.");
+			System.out.println("Attack Speed amount must be positive.\n");
 		else {
 			this.attackSpeed += addSpeed;
-			System.out.println("Attack Speed was rasied by " + addSpeed);
+			System.out.println("Attack Speed was rasied by " + addSpeed + "\n");
 		}		
 	}
 
@@ -65,15 +65,13 @@ public abstract class DungeonCharacter {
 			this.hitPoints -= hitPoints;
 			if (this.hitPoints < 0)
 				this.hitPoints = 0;
-			System.out.println(getName() + " hit " +
-								" for <" + hitPoints + "> points damage.");
-			System.out.println(getName() + " now has " +
-								getHitPoints() + " hit points remaining.");
+			System.out.println(getName() + " took <" + hitPoints + "> damage!");
+			System.out.println(getName() + " now has " + getHitPoints() + " health remaining.");
 			System.out.println();
 		}//end else if
 
 		if (this.hitPoints == 0)
-			System.out.println(name + " has been killed :-(");
+			System.out.println(name + " has been killed!");
 		
 	}//end subtractHitPoints
 
@@ -81,10 +79,5 @@ public abstract class DungeonCharacter {
     	
 	  return (hitPoints > 0);
 	}
-/*
-	public void attack(DungeonCharacter monster) { //not sure if this should be here
-		
-		mAttack.attack(monster, this);
-	}
-*/
+    
 }//end class Character

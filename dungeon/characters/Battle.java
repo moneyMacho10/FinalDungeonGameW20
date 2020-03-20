@@ -27,7 +27,7 @@ public class Battle {
 			
 			while(numOfTurns > 0 && mMonster.isAlive()) {	
 		
-				System.out.println("Number of Attacks Left: " + numOfTurns);
+				System.out.println("Attacks Left: " + numOfTurns + "");
 				
 				int attackOption = attackMenu(mHero, keyboard);
 				
@@ -37,7 +37,7 @@ public class Battle {
 				} 
 				else if(attackOption == 2){
 					attacks.setAttackType(mHero.specialAttackDescription());
-					attacks.attack(mHero, mMonster);
+					attacks.specAttack(mHero, mMonster); 
 				}
 				
 				numOfTurns--;
@@ -52,8 +52,9 @@ public class Battle {
 			
 			//let player bail out if desired
 			System.out.println();
-			System.out.print("Turn Over -->q to quit, anything else to continue: ");
+			System.out.print("Press q to quit, or anything else to continue: ");
 			String quitCheck = keyboard.nextLine();
+			System.out.println();
 			userQuits = quitCheck.equalsIgnoreCase("q");
 			
 		}//end battle loop
@@ -66,11 +67,11 @@ public class Battle {
 	private static void printBattleResults(Hero mHero, Monster mMonster) {
 		
 		if (!mMonster.isAlive())
-			System.out.println(mHero.getName() + " IS VICTORIOUS!");
+			System.out.println("\n" + mHero.getName() + " IS VICTORIOUS!\n");
 		else if (!mHero.isAlive())
-			System.out.println(mHero.getName() + " was defeated  :-(");
+			System.out.println("\n" + mHero.getName() + " was defeated! \n");
 		else//both are alive so user quit the game
-			System.out.println("You cant quit now, fight the monster!!!");
+			System.out.println("You cant quit now, fight the monster!!!\n");
 	}
 
 	private static int attackMenu(Hero mHero, Scanner keyboard) {
@@ -83,10 +84,12 @@ public class Battle {
 			System.out.print("Choice --> ");
 
 			choice = keyboard.nextLine();
-
+			
+			System.out.println();
+			
 			if(!(choice.equals("1") || choice.equals("2")))
 			{
-				System.out.println("You havent mastered any other moves!!");
+				System.out.println("You havent mastered any other moves!!\n");
 			}
 
 		}while(!(choice.equals("1") || choice.equals("2")));

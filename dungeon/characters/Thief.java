@@ -14,19 +14,11 @@ public class Thief extends Hero {
     private void addAttackSpeed() {
 		
 		int addSpeed;
-
+		
 		addSpeed = (int)(Math.random() * (MAX_ADD - MIN_ADD + 1)) + MIN_ADD;
 		addAttackSpeed(addSpeed);
     }//end increaseHitPoints method
-/*
-	@Override
-	public void attack(DungeonCharacter opponent)
-	{
-		System.out.println(name + " kicks enemies face \n" +
-							opponent.getName() + ":");
-		super.attack(opponent);
-	}//end override of attack method
-*/
+
 	@Override
     public String attackDescription() {
     	return "kicks enemies face";

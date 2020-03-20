@@ -10,24 +10,15 @@ public class Warrior extends Hero {
 		
 		if (Math.random() <= .4) {
 			int blowPoints = (int)(Math.random() * 76) + 100;
-			System.out.println(name + " lands a CRUSHING BLOW for " + blowPoints + " damage!");
+			System.out.println(name + " lands a CRUSHING BLOW for " + blowPoints + " damage!\n");
 			opponent.subtractHitPoints(blowPoints);
 		}
 		else {
-			System.out.println(name + " failed to land a crushing blow");
-			System.out.println();
+			System.out.println(name + " failed to land a crushing blow\n");
 		}
 
 	}//end crushingBlow method
-/*
-	@Override
-	public void attack(DungeonCharacter opponent)
-	{
-		System.out.println(name + " swings a mighty sword at " +
-							opponent.getName() + ":");
-		super.attack(opponent);
-	}//end override of attack method
-*/
+
 	@Override
 	public String attackDescription() {
 		return "swings mighty sword";

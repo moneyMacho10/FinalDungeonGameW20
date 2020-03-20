@@ -56,5 +56,57 @@ class CharacterTest {
 		assertEquals("Flees the premise", tom.specialAttackDescription());
 	}
 	
+	@Test
+	void testName() {
+		assertEquals("Ogre", ogre.getName());
+		assertEquals("Skeleton", skeleton.getName());
+		assertEquals("Gremlin", gremlin.getName());
+		assertEquals("Zombie", zombie.getName());
+		assertEquals("Evil Stu Steiner", stu.getName());
+		
+	}
+	
+	@Test
+	void testHitPoints() {
+		assertEquals(125, warrior.getHitPoints());
+		assertEquals(75, sorceress.getHitPoints());
+		assertEquals(75, thief.getHitPoints());
+		assertEquals(20, wonderDuck.getHitPoints());
+		assertEquals(75, tom.getHitPoints());
+		assertEquals(200, ogre.getHitPoints());
+		assertEquals(100, skeleton.getHitPoints());
+		assertEquals(70, gremlin.getHitPoints());
+		assertEquals(120, zombie.getHitPoints());
+		assertEquals(60, stu.getHitPoints());
+	}
+	
+	@Test
+	void testAttackSpeed() {
+		assertEquals(4, warrior.getAttackSpeed());
+		assertEquals(5, sorceress.getAttackSpeed());
+		assertEquals(6, thief.getAttackSpeed());
+		assertEquals(7, wonderDuck.getAttackSpeed());
+		assertEquals(6, tom.getAttackSpeed());
+		assertEquals(2, ogre.getAttackSpeed());
+		assertEquals(3, skeleton.getAttackSpeed());
+		assertEquals(5, gremlin.getAttackSpeed());
+		assertEquals(5, zombie.getAttackSpeed());
+		assertEquals(2, stu.getAttackSpeed());
+	}
+	
+	@Test
+	void testIsAlive() {
+		assertTrue(warrior.isAlive());
+		assertTrue(sorceress.isAlive());
+		assertTrue(thief.isAlive());
+		assertTrue(wonderDuck.isAlive());
+		assertTrue(tom.isAlive());
+		assertTrue(ogre.isAlive());
+		assertTrue(skeleton.isAlive());
+		assertTrue(gremlin.isAlive());
+		assertTrue(zombie.isAlive());
+		assertTrue(stu.isAlive());
+	}
+	
 
 }

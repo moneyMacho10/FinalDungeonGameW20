@@ -46,8 +46,13 @@ public class Pillar {
 		return numberOfPillars == 4;
 	}
 	
-	public static void foundPillar() {
+	public void foundPillar() {
 		numberOfPillars++;
+	}
+	
+	@Override
+	public String toString() {
+		return "\nYou have found a Pillar of OO.\n";
 	}
 	
 }

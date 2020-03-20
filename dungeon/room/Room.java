@@ -46,8 +46,8 @@ public class Room {
 			this.discoverSymbol = 'P';
 
 		} else if (objectChance == 1) {
-			this.discoverable = new MonsterFactory();
-			this.discoverSymbol = 'M';
+			this.discoverable = new MonsterFactory().generateMonster();
+			this.discoverSymbol = 'X';
 
 		} else if (objectChance == 2) {
 			this.discoverable = new HealingPotion();
@@ -76,7 +76,7 @@ public class Room {
 		this.singleRoom[1][1] = this.discoverSymbol;
 	}
 	
-	public void setDiscoverable(char character) {
+	public void setDiscoverSymbol(char character) {
 		this.discoverSymbol = character;
 		this.singleRoom[1][1] = this.discoverSymbol;
 	}

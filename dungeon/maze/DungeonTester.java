@@ -13,4 +13,8 @@ public class DungeonTester {
 	}
 	
 	
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0c629d8dbb483056ec6b40212c9f36c00b705e6b

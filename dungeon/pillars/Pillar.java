@@ -55,4 +55,8 @@ public class Pillar {
 		return "\nYou have found a Pillar of OO.\n";
 	}
 	
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0c629d8dbb483056ec6b40212c9f36c00b705e6b

@@ -10,23 +10,13 @@ public class Tom_Capaul extends Hero {
 	private void flees(DungeonCharacter opponent) {
 		
 		double chance = Math.random();
-System.out.println("Test: printing out random number chance: " + chance);	
+		
 		if (chance <= .4) {
-			System.out.println("You tripped and fell! Ouch. No getting out of this one I guess...");
+			System.out.println("You tripped and fell! Ouch. Not getting out of this one I guess...\n");
 		}
 		else
-			System.out.println("Uh oh! " + opponent.getName() + " saw you and didn't let you run away");
+			System.out.println("Uh oh! " + opponent.getName() + " saw you and didn't let you run away\n");
 	}//end surpriseAttack method
-	
-/*
-	@Override
-	public void attack(DungeonCharacter opponent)
-	{
-		System.out.println(name + " throws a rock at \n" +
-							opponent.getName() + ":");
-		super.attack(opponent);
-	}//end override of attack method
-*/
 	
 	@Override
     public String attackDescription() {

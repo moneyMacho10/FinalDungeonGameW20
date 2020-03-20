@@ -29,14 +29,15 @@ public class AttackType implements Attack {
 		{
 			damage = (int)(Math.random() * (attacker.damageMax - attacker.damageMin + 1)) + attacker.damageMin ;
 			attacked.subtractHitPoints(damage);
-			System.out.println();
 		}//end if can attack
 		else
 		{
-			System.out.println(attacker.getName() + "'s attack on " + attacked.getName() + " failed!");
-			System.out.println();
+			System.out.println(attacker.getName() + "'s attack on " + attacked.getName() + " failed!\n");
 		}//end else
-	}//end attck method
+	}//end attack method
 	
+	public void specAttack(Hero attacker, Monster attacked) {
+		attacker.specialAttack(attacked);
+	}
 }//end AttackType Class
 	

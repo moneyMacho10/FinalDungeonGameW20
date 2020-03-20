@@ -12,7 +12,7 @@ public class Tom_Capaul extends Hero {
 		double chance = Math.random();
 		
 		if (chance <= .4) {
-			System.out.println("You tripped and fell! Ouch. Not getting out of this one I guess.../n");
+			System.out.println("You tripped and fell! Ouch. Not getting out of this one I guess...\n");
 		}
 		else
 			System.out.println("Uh oh! " + opponent.getName() + " saw you and didn't let you run away\n");

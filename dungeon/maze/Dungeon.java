@@ -182,8 +182,4 @@ public class Dungeon {
 		return this.currentRoom.toString();
 	}
 
-<<<<<<< HEAD:dungeon/maze/Dungeon.java
 }
-=======
-}
->>>>>>> 0c629d8dbb483056ec6b40212c9f36c00b705e6b:dungeon/maze/Maze.java

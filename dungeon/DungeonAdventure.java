@@ -4,12 +4,12 @@ import java.util.Random;
 import java.util.Scanner;
 import dungeon.characters.*;
 import dungeon.Game;
-import dungeon.maze.Maze;
+import dungeon.maze.Dungeon;
 
-public class Dungeon
+public class DungeonAdventure
 {
 	public static Hero mHero;; 
-	static Maze mMaze;
+	static Dungeon mMaze;
 	static Monster mMonster;
 	
 	//static Dungeon dungeon;

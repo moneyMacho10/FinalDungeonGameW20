@@ -14,13 +14,12 @@ public class HealingPotion{
 	public void usePotion(DungeonCharacter character) {
 		this.player = character;
 		character.addHitPoints(healingDone = new Random().nextInt(maxHealth));
-		
-		System.out.println(this.toString());
+
 	}
 	
 	@Override
 	public String toString() {
-		return this.player.getName() + " gained " + this.healingDone + " health from a potion.";
+		return "\n" + this.player.getName() + " gained " + this.healingDone + " health from a potion.\n";
 	}
 
 }

@@ -1,6 +1,5 @@
 package dungeon.maze;
 
-import java.util.ArrayList;
 import dungeon.pillars.Pillar;
 import dungeon.room.Room;
 
@@ -11,11 +10,10 @@ public class Maze {
 	private Room exit;
 	private int rowPosition;
 	private int columnPosition;
-	private int numberOfPillars;
 	private Pillar pillar;
 	
 	public Maze() {
-		maze = new Room[4][4];
+		this.maze = new Room[4][4];
 
 		for (int i = 0; i < maze.length; i++) {
 			for (int j = 0; j < maze[i].length; j++) {
@@ -26,19 +24,22 @@ public class Maze {
 
 		this.entrance = maze[0][0];
 		this.exit = maze[3][3];
-		
 		this.entrance.setDiscoverable(null, ' ');
 		this.exit.setDiscoverable(null, ' ');
 
 		this.currentRoom = this.entrance;
 
 		this.createDoors();
+		this.createPillars();
 		
+
+	}
+	
+	private void createPillars() {
 		this.maze[1][0].setDiscoverable(pillar, 'O');
 		this.maze[1][3].setDiscoverable(pillar, 'O');
 		this.maze[2][3].setDiscoverable(pillar, 'O');
 		this.maze[3][1].setDiscoverable(pillar, 'O');
-
 	}
 	
 	private void createDoors() {
@@ -80,6 +81,10 @@ public class Maze {
 		this.maze[3][2].setEastDoor();
 		this.maze[3][3].setWestDoor();
 	}
+	
+	public boolean isEndGame() {
+		return pillar.haveAllPillars() && this.currentRoom.equals(this.exit);
+	}
 
 	public Room[][] getMaze() {
 		return this.maze;
@@ -103,10 +108,7 @@ public class Maze {
 		return this.columnPosition;
 	}
 
-	public void getNextLocation(int direction) {
-		/*
-		 * 1. Up 2. Right 3. Down 4. Left
-		 */
+	public void toTravel(int direction) {
 
 		if (direction == 1 && this.currentRoom.isNorthDoor()) {
 			this.rowPosition -= 1;
@@ -115,7 +117,6 @@ public class Maze {
 		} else if (direction == 2 && this.currentRoom.isEastDoor()) {
 			this.columnPosition += 1;
 			this.currentRoom = this.maze[this.rowPosition][this.columnPosition];
-			
 
 		} else if (direction == 3 && this.currentRoom.isSouthDoor()) {
 			this.rowPosition += 1;
@@ -128,12 +129,6 @@ public class Maze {
 		} else {
 			System.out.println("\nGood Sir, that is a wall. \n");
 		}
-		
-	}
-
-	@Override
-	public String toString() {
-		return this.currentRoom.toString();
 	}
 
 }

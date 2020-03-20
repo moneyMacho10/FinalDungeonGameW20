@@ -80,4 +80,6 @@ public abstract class DungeonCharacter {
 	  return (hitPoints > 0);
 	}
     
+    public abstract String attackDescription();
+    
 }//end class Character
